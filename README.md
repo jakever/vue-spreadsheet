@@ -1,2 +1,1 @@
-# vue-spreadsheet
-vue表格编辑组建
+#### vue-spreadsheet 基于vue实现的在线编辑表格组建
