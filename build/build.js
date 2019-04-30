@@ -2,18 +2,25 @@
 require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
-
+// loading 插件
+// https://github.com/sindresorhus/ora
 const ora = require('ora')
+// 可以在 node 中执行`rm -rf`的工具
+// https://github.com/isaacs/rimraf
 const rm = require('rimraf')
 const path = require('path')
+// 在终端输出带颜色的文字
+// https://github.com/chalk/chalk
 const chalk = require('chalk')
 const webpack = require('webpack')
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
-
-const spinner = ora('building for production...')
+// 在终端显示loading效果，并输出提示
+const spinner = ora('正在构建中...')
 spinner.start()
 
+// 首先将整个dist文件夹以及里面的内容删除，以免遗留旧的没用的文件
+// 删除完成后才开始webpack构建打包
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {

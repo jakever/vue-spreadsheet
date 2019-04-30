@@ -45,16 +45,19 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
+      // 配置extract-text-plugin提取样式
       return ExtractTextPlugin.extract({
         use: loaders,
         fallback: 'vue-style-loader'
       })
     } else {
+      // 无需提取样式则简单使用vue-style-loader配合各种样式loader去处理<style>里面的样式
       return ['vue-style-loader'].concat(loaders)
     }
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
+  // 得到各种不同处理样式的语言所对应的loader
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
@@ -67,6 +70,7 @@ exports.cssLoaders = function (options) {
 }
 
 // Generate loaders for standalone style files (outside of .vue)
+// 生成处理单独的.css、.sass、.scss等样式文件的规则
 exports.styleLoaders = function (options) {
   const output = []
   const loaders = exports.cssLoaders(options)

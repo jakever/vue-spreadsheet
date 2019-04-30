@@ -1,0 +1,106 @@
+.wraper{
+    position: relative;
+    border-right: 1px solid #d6dfe4;
+    border-bottom: 1px solid #d6dfe4;
+}
+
+.excelBody {
+    position: relative;
+    // top: 0px;
+    // left: 0px;
+    // width: 0;
+    // height: auto;
+}
+/********* table **********/
+.table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 12px;
+    background: #fff;
+    
+    th,
+    td {
+        padding: 0;
+        border-right: 1px solid #d6dfe4;
+        border-bottom: 1px solid #d6dfe4;
+        text-indent: 4px;
+        vertical-align: middle;
+    }
+
+    td {
+        vertical-align: middle;
+        overflow: hidden;
+        height: 32px;
+        line-height: 22px;
+    }
+
+    th {
+        color: #1c2438;
+        font-weight: 600;
+        height: 40px;
+        border-top: 1px solid #d6dfe4;
+        text-align: center;
+        position: relative;
+        background-color: #eef1f6;
+    }
+    .cell_td {
+        padding: 0 16px;
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &.active {
+            color: #2d8cf0;
+        }
+    }
+    .error {
+        background: #f16543;
+    }
+    .readonly {
+        background: #f7f8fa !important;
+        color: #a0a0a0;
+    }
+}
+
+/********** 表格外层容器 *********/
+.header {
+    position: relative;
+    overflow: hidden;
+
+    .header_inner{
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+    }
+}
+.body {
+    position: relative;
+    overflow: hidden;
+
+    .body_inner{
+        position: relative;
+        background-color: #fff;
+        overflow-x: hidden;
+        overflow-y: auto;
+        user-select: none;
+    }
+}
+
+/********** 左侧固定 ***********/
+.fixed_left_table{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.22);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 9;
+}
+
+/********** 右侧滚动 ***********/
+.scroll_table{
+    overflow: auto;
+    position: relative;
+}
+
